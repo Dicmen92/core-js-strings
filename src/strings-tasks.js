@@ -228,20 +228,8 @@ function endsWith(str, substr) {
  *   formatTime(0, 45) => "00:45"
  *   formatTime(0, 0) => "00:00"
  */
-function formatTime(minutes, seconds) {
-  let minute;
-  let second;
-  if (minutes.length === 1) {
-    minute = `0${minutes}`;
-  } else {
-    minute = minutes;
-  }
-  if (seconds.length === 1) {
-    second = `0${seconds}`;
-  } else {
-    second = seconds;
-  }
-  return `${minute}:${second}`;
+function formatTime(/*  minutes, seconds */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -254,8 +242,8 @@ function formatTime(minutes, seconds) {
  *   reverseString('abcdef') => 'fedcba'
  *   reverseString('12345') => '54321'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  return str.split('').reverse().join('');
 }
 
 /**
@@ -269,8 +257,8 @@ function reverseString(/* str */) {
  *   orderAlphabetically('textbook') => 'bekoottx'
  *   orderAlphabetically('abc123xyz') => '123abcxyz'
  */
-function orderAlphabetically(/* str */) {
-  throw new Error('Not implemented');
+function orderAlphabetically(str) {
+  return str.split(``).sort().join(``);
 }
 
 /**
@@ -285,8 +273,8 @@ function orderAlphabetically(/* str */) {
  *   containsSubstring('JavaScript is Fun', 'Python') => false
  *   containsSubstring('12345', '34') => true
  */
-function containsSubstring(/* str, substring */) {
-  throw new Error('Not implemented');
+function containsSubstring(str, substring) {
+  return str.includes(substring);
 }
 
 /**
@@ -303,8 +291,19 @@ function containsSubstring(/* str, substring */) {
  *   countVowels('aEiOu') => 5
  *   countVowels('XYZ') => 1
  */
-function countVowels(/* str */) {
-  throw new Error('Not implemented');
+function countVowels(str) {
+  const alfavit = 'aeiouyAEIOUY';
+  let result = 0;
+  for (let i = 0; i <= str.split(``).length; i += 1) {
+    if (str[i]) {
+      for (let j = 0; j <= alfavit.split(``).length; j += 1) {
+        if (str[i] === alfavit.split(``)[j]) {
+          result += 1;
+        }
+      }
+    }
+  }
+  return result;
 }
 
 /**
